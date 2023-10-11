@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 
 const indexRouter = require("./routes/index");
 const authorRouter = require("./routes/authors");
+const bookRouter = require("./routes/books");
 
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
@@ -27,6 +28,7 @@ db.once("open", () => console.log("Connected to Mongoose"));
 
 app.use("/", indexRouter);
 app.use("/authors", authorRouter);
+app.use("/books", bookRouter);
 
 app.listen(process.env.port || 3000);
 // saw this suggestion in https://stackoverflow.com/questions/14322989/first-heroku-deploy-failed-error-code-h10
